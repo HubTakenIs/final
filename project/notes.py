@@ -98,3 +98,10 @@ def delete(id):
     db.execute('DELETE FROM notes WHERE id = ?', (id,))
     db.commit()
     return redirect(url_for('notes.index'))
+
+@bp.route('/<int:id>/view', methods=('GET',))
+@login_required
+def view(id):
+    note = get_note(id)
+    return render_template('notes/view.html', note=note)
+    

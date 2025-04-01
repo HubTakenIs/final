@@ -12,7 +12,7 @@
     <article class="note">
       <header>
         <div>
-          <h1>{{ note['title'] }}</h1>
+          <h1><a href="{{ url_for('notes.view', id=note['id']) }}">{{ note['title'] }}</a></h1>
           <div class="about">by {{ note['username'] }} on {{ note['created'].strftime('%Y-%m-%d') }}</div>
         </div>
         {% if g.user['id'] == note['author_id'] %}

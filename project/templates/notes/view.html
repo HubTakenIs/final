@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}View Note {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <article class="note">
+      <header>
+        <div>
+          <h1>{{ note['title'] }}</h1>
+          <div class="about">by {{ note['username'] }} on {{ note['created'].strftime('%Y-%m-%d') }}</div>
+        </div>
+      </header>
+      <p class="body">{{ note['body'] }}</p>
+    </article>
+{% endblock %}
